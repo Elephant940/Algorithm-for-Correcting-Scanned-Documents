@@ -90,18 +90,23 @@ for entry in os.scandir(cwd):
                             output_file = (f"no_text_{filename}")
                             #name the new image file the filename with text_free_ in front of it
                             )
-                        
-                        im = Image.open(subfolder + "/" + filename)
-                        #open the image file
-                    
-                        new_pdf_name = f"{filename}.pdf"
-                        #set the new_pdf_name equal to the pdf version of the image file
-                        
-                        pdf_ims.append(new_pdf_name)
-                        #add the pdf versions of the images to a list
-                        
-                        new_pdf = im.save(new_pdf_name)
-                        #convert the image file to a pdf
+
+                        for filename in list_dir:
+                        #for individual files within the lists of files
+                            for img_ext in img_exts:
+                            #for each extension in the list of img_exts
+                                
+                                im = Image.open(subfolder + "/" + filename)
+                                #open the image file
+                            
+                                new_pdf_name = f"{filename}.pdf"
+                                #set the new_pdf_name equal to the pdf version of the image file
+                                
+                                pdf_ims.append(new_pdf_name)
+                                #add the pdf versions of the images to a list
+                                
+                                new_pdf = im.save(new_pdf_name)
+                                #convert the image file to a pdf
 
                     elif filename.lower().endswith(img_ext):
                     #if the file has a listed image extension
