@@ -24,7 +24,10 @@ img_exts = [".bmp", ".gif", ".jpg", ".jpeg", ".png", ".jp2", ".tif", ".tiff"]
 processed_documents = []
 #create a list for all the processed documents
 
-for entry in os.scandir(cwd):
+files = os.scandir(cwd)
+sorted_files = sorted(files)
+
+for entry in sorted_files:
 #for files and folders (entries) in the cwd
     if entry.is_dir():
     #if the entry is a folder
